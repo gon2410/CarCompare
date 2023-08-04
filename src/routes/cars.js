@@ -4,13 +4,6 @@ import CarManager from "../DAO/CarDAO.js";
 const carManager = new CarManager();
 const carsRouter = Router();
 
-// carsRouter.post("/", async (req, res) => {
-//     let car = req.body;
-//     let result;
-//     result = await carManager.getCarsByName(car.searchValue)
-//     res.send(result)
-// })
-
 carsRouter.get("/", async (req, res) => {
     let result;
     result = await carManager.getAllCars();
@@ -56,18 +49,6 @@ function compare(car1, car2) {
         comparison.top_speed_winner = {car: carr2._id, diff: carr2.top_speed - carr1.top_speed};
         comparison.top_speed_loser = {car: carr1._id, diff: -(carr1.top_speed - carr2.top_speed)};
     }
-
-    if (carr1.zero_to_onehundred > carr2.zero_to_onehundred) {
-        comparison.zero_to_onehundred_winner = {car: carr1._id, diff: carr1.zero_to_onehundred - carr2.zero_to_onehundred};
-        comparison.zero_to_onehundred_loser = {car: carr2._id, diff: -(carr1.zero_to_onehundred - carr2.zero_to_onehundred)};
-    } else if (carr2.zero_to_onehundred > carr1.zero_to_onehundred) {
-        comparison.zero_to_onehundred_winner = {car: carr2._id, diff: carr2.zero_to_onehundred - carr1.zero_to_onehundred};
-        comparison.zero_to_onehundred_loser = {car: carr1._id, diff: -(carr1.zero_to_onehundred - carr2.zero_to_onehundred)};
-    }
-
-
-
-
 
     return comparison;
 }
