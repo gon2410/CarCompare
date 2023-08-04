@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.use("/cars", carsRouter);
 
 
-const PORT = 5000;
+const PORT = process.env.PORT || 8080;
 const httpServer = app.listen(PORT, () => {
     console.log(`Server running on port: ${httpServer.address().port}`);
 })
