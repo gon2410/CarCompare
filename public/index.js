@@ -41,7 +41,7 @@ button.addEventListener("click", () => {
     
             data.carsArray.forEach(elem => {
                 result.innerHTML += `<h3>
-                                        ${elem.name}
+                                        ${elem.year + " " + elem.brand + " " + elem.name}
                                     </h3>
                                     <table class="col table table-bordered">
                                         <tbody>
